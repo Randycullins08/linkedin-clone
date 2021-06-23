@@ -32,9 +32,7 @@ const Main = (props) => {
   };
   return (
     <>
-      {props.articles.length === 0 ? (
-        <p>There are no articles</p>
-      ) : (
+      
         <Container>
           <ShareBox>
             <div>
@@ -72,6 +70,9 @@ const Main = (props) => {
               </button>
             </div>
           </ShareBox>
+        {props.articles.length === 0 ? (
+          <p>There are no articles</p>
+        ) : (
           <Content>
             {props.loading && <img src="/images/loader.png" alt="" />}
             {props.articles.length > 0 &&
@@ -141,9 +142,9 @@ const Main = (props) => {
                 </Article>
               ))}
           </Content>
+        )}
           <PostModal showModal={showModal} handleClick={handleClick} />
         </Container>
-      )}
     </>
   );
 };
